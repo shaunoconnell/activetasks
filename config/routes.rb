@@ -1,7 +1,7 @@
 Activetasks::Application.routes.draw do
 
   resources :user, :except=>[:new,:edit] do
-    resources :activity, :except=>[:new,:edit]
+    resources :activities, :except=>[:new,:edit]
   end
 
   resources :activity, :only=>[] do

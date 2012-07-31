@@ -6,5 +6,9 @@ class User
   field :name, type: String
   field :email, type: String
 
+  validates_uniqueness_of :email
+
   has_many :activities
+
+  #embedded_in :activity
 end
