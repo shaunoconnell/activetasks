@@ -1,1 +1,35 @@
-<h3>TODO: put some documentation here</h3>
+<h1>API docs for ActiveTasks</h1>
+<table>
+  <thead>
+    <td>VERB</td>
+    <td>URL</td>
+    <td>Example</td>
+  </thead>
+  <tr>
+    <td>GET</td>
+    <td>http://localhost:3000/users</td>
+    <td>curl -i -H "Accept: application/json" -X GET http://localhost:3000/users</td>
+  </tr>
+
+  <tr>
+      <td>POST</td>
+      <td>http://localhost:3000/users</td>
+      <td>curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d "{\"email\":\"foo@bar.com\",\"name\":\"foobah\"}" http://localhost:3000/users</td>
+    </tr>
+  <tr>
+      <td>GET</td>
+      <td>http://localhost:3000/users/{id}</td>
+      <td>curl -i -H "Accept: application/json" -X GET http://localhost:3000/users/501b4f7f60de7d8059000001</td>
+    </tr>
+  <tr>
+      <td>PUT</td>
+      <td>http://localhost:3000/users/{id}</td>
+      <td>curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X PUT -d "{\"email\":\"xfoo@bar.com\",\"name\":\"foobar\"}" http://localhost:3000/users/501b4f7f60de7d8059000001</td>
+    </tr>
+  <tr>
+      <td>DELETE</td>
+      <td>http://localhost:3000/users/{id}</td>
+      <td>curl -i -H "Accept: application/json" -X DELETE http://localhost:3000/users/501b4f7f60de7d8059000001</td>
+    </tr>
+
+</table>

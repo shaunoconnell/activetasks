@@ -3,11 +3,14 @@ class Activity
   include Mongoid::Timestamps
 
   field :name, type: String
-  embeds_many :followers, :class_name=>"User"
-  #embeds_many :followers, store_as: :user
+  field :follower_ids, type: Array
+
+
 
   belongs_to :user
   has_many :activity_posts
+
+  validates :name, :user, :presence => true
 
   #alias_method :followers, :users
 end

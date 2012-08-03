@@ -7,6 +7,7 @@ class User
   field :email, type: String
 
   validates_uniqueness_of :email
+  validates_presence_of :name, :email
 
   has_many :activities
 

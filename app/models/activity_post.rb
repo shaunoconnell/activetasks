@@ -3,8 +3,8 @@ class ActivityPost
   include Mongoid::Timestamps
   #user, followers [], activity (Activity), post_time, activity_time
 
-
-  field :occurred_at, type: DateTime
+  field :description, type: String
+  #field :occurred_at, type: DateTime
 
   belongs_to :activity
 end

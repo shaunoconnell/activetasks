@@ -1,6 +1,6 @@
 Activetasks::Application.routes.draw do
   root :to => 'home#index'
-  resources :user, :except=>[:new,:edit] do
+  resources :users, :except=>[:new,:edit] do
     resources :activities, :except=>[:new,:edit]
   end
 
