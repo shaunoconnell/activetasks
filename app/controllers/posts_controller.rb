@@ -1,58 +1,38 @@
 class PostsController < ApplicationController
+  include Gizmo
 
   def index
-    posts = ActivityPost.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: posts }
+    posts = ActivityPost.where({:activity_id => params[:activity_id]})
+    if posts.nil? || posts.count == 0
+      render_404
+    else
+      render find_all(posts).to_hash
     end
   end
 
   def show
-    post = ActivityPost.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: post }
+    post = ActivityPost.where({:activity_id => params[:activity_id]})
+    if post.nil?
+      render_404
+    else
+      render find(post, params[:id]).to_hash
     end
   end
 
   def create
-    post = ActivityPost.new(params[:post])
-
-    respond_to do |format|
-      if post.save
-        format.html { redirect_to post, notice: 'Post was successfully created.' }
-        format.json { render json: post, status: :created, location: post }
-      else
-        format.html { render action: "new" }
-        format.json { render json: post.errors, status: :unprocessable_entity }
-      end
+    url_proc = Proc.new do |id|
+      activity_post_url(params[:activity_id], id)
     end
+    render make(ActivityPost, params, url_proc).to_hash
   end
 
   def update
-    post = ActivityPost.find(params[:id])
-
-    respond_to do |format|
-      if post.update_attributes(params[:post])
-        format.html { redirect_to post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: post.errors, status: :unprocessable_entity }
-      end
-    end
+    post = ActivityPost.where({:activity_id => params[:activity_id]})
+    render modify(post, params[:id], params).to_hash
   end
 
   def destroy
-    post = ActivityPost.find(params[:id])
-    post.destroy
-
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
-    end
+    posts = ActivityPost.where({:activity_id => params[:activity_id]})
+    render delete(posts, params[:id]).to_hash
   end
 end

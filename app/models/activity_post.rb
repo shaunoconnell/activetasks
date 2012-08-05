@@ -7,4 +7,6 @@ class ActivityPost
   #field :occurred_at, type: DateTime
 
   belongs_to :activity
+
+  validates :description, :activity, :presence => true
 end

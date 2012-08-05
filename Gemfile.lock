@@ -1,5 +1,6 @@
-PATH
-  remote: ../gizmo
+GIT
+  remote: git://github.com/codescratch/gizmo.git
+  revision: 9caddd951065e36c18a6b7eb129cdc70ad63ae6d
   specs:
     gizmo (0.0.1)
       aquarium (~> 0.5.0)
