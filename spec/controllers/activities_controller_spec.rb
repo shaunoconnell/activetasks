@@ -84,4 +84,44 @@ describe ActivitiesController do
       errors_json["user"].should_not be_nil
     end
   end
+
+  context "PUT #update" do
+    it "should properly update an existing activity" do
+      activity = Activity.first
+      activity.name = "my new name"
+      json = activity.attributes.merge({:format => :json})
+
+      put :update, json.merge({"id" => activity.id})
+      response.status.should eq(200)
+
+      result_json = JSON.parse(response.body)
+      result_json["name"].should == "my new name"
+
+      activity = Activity.find(activity.id)
+      activity.name.should == "my new name"
+
+    end
+  end
+
+  context "DELETE #destroy" do
+    it "should remove an existing entity" do
+      activity = Activity.first
+      json = {:format=>:json, :id=>activity.id, :user_id=>activity.user_id}
+
+      delete :destroy, json
+
+      response.status.should == 200
+      Activity.where({:id=>activity.id}).count.should == 0
+
+    end
+
+    it "should return 404 if there is not entity to destroy" do
+      unsaved_activity = FactoryGirl.build(:activity)
+      json = {:format=>:json, :id=>unsaved_activity.id, :user_id=>unsaved_activity.user_id}
+
+      delete :destroy, json
+      response.status.should == 404
+
+    end
+  end
 end

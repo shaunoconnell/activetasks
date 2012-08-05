@@ -3,9 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.7'
 
 # Bundle edge Rails instead:
-#gem 'gizmo', :git => 'git://github.com/codescratch/gizmo.git'
-
-gem 'gizmo', :path => '../gizmo'
+gem 'gizmo', :git => 'git://github.com/codescratch/gizmo.git'
+#gem 'gizmo', :path => '../gizmo'
 
 
 gem "mongoid"

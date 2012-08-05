@@ -27,7 +27,7 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    activity = Activity.where({:user_id=>params[:user_id]}).first
+    activity = Activity.where({:user_id=>params[:user_id]})
     render modify(activity, params[:id], params).to_hash
   end
 
