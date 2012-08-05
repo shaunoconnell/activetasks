@@ -12,5 +12,6 @@ class Activity
 
   validates :name, :user, :presence => true
 
+
   #alias_method :followers, :users
 end

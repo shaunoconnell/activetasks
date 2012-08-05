@@ -15,4 +15,10 @@ describe Activity do
    @activity.valid?.should be_false
  end
 
+  it "should require a user" do
+    new_activity = FactoryGirl.build(:activity)
+    new_activity.user = nil
+    new_activity.valid?.should be_false
+  end
+
 end
