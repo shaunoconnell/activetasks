@@ -1,35 +1,111 @@
 <h1>API docs for ActiveTasks</h1>
 <table>
   <thead>
-    <td>VERB</td>
-    <td>URL</td>
-    <td>Example</td>
+  <td>VERB</td>
+  <td>URL</td>
+  <td>Example</td>
   </thead>
+
+  <tr>
+    <td>GET</td>
+    <td>http://localhost:3000/db_seed</td>
+    <td>curl -i -H "Accept: application/json" -X GET http://localhost:3000/db_seed</td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>http://localhost:3000/db_clear</td>
+    <td>curl -i -H "Accept: application/json" -X GET http://localhost:3000/db_clear</td>
+  </tr>
+
   <tr>
     <td>GET</td>
     <td>http://localhost:3000/users</td>
     <td>curl -i -H "Accept: application/json" -X GET http://localhost:3000/users</td>
   </tr>
+  <tr>
+    <td>POST</td>
+    <td>http://localhost:3000/users</td>
+    <td>curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d
+      "{\"email\":\"foo@bar.com\",\"name\":\"foobah\"}" http://localhost:3000/users
+    </td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>http://localhost:3000/users/{id}</td>
+    <td>curl -i -H "Accept: application/json" -X GET http://localhost:3000/users/501b4f7f60de7d8059000001</td>
+  </tr>
+  <tr>
+    <td>PUT</td>
+    <td>http://localhost:3000/users/{id}</td>
+    <td>curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X PUT -d
+      "{\"email\":\"xfoo@bar.com\",\"name\":\"foobar\"}" http://localhost:3000/users/501b4f7f60de7d8059000001
+    </td>
+  </tr>
+  <tr>
+    <td>DELETE</td>
+    <td>http://localhost:3000/users/{id}</td>
+    <td>curl -i -H "Accept: application/json" -X DELETE http://localhost:3000/users/501b4f7f60de7d8059000001</td>
+  </tr>
 
   <tr>
-      <td>POST</td>
-      <td>http://localhost:3000/users</td>
-      <td>curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d "{\"email\":\"foo@bar.com\",\"name\":\"foobah\"}" http://localhost:3000/users</td>
-    </tr>
+    <td>GET</td>
+    <td>http://localhost:3000/users/{user_id}/activities</td>
+    <td></td>
+  </tr>
   <tr>
-      <td>GET</td>
-      <td>http://localhost:3000/users/{id}</td>
-      <td>curl -i -H "Accept: application/json" -X GET http://localhost:3000/users/501b4f7f60de7d8059000001</td>
-    </tr>
+    <td>POST</td>
+    <td>http://localhost:3000/users/{user_id}/activities</td>
+    <td></td>
+  </tr>
   <tr>
-      <td>PUT</td>
-      <td>http://localhost:3000/users/{id}</td>
-      <td>curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X PUT -d "{\"email\":\"xfoo@bar.com\",\"name\":\"foobar\"}" http://localhost:3000/users/501b4f7f60de7d8059000001</td>
-    </tr>
+    <td>GET</td>
+    <td>http://localhost:3000/users/{user_id}/activities/{id}</td>
+    <td></td>
+  </tr>
   <tr>
-      <td>DELETE</td>
-      <td>http://localhost:3000/users/{id}</td>
-      <td>curl -i -H "Accept: application/json" -X DELETE http://localhost:3000/users/501b4f7f60de7d8059000001</td>
-    </tr>
+    <td>PUT</td>
+    <td>http://localhost:3000/users/{user_id}/activities/{id}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>DELETE</td>
+    <td>http://localhost:3000/users/{user_id}/activities/{id}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>http://localhost:3000/</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>http://localhost:3000/</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>http://localhost:3000/activity/{activity_id}/posts</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>POST</td>
+    <td>http://localhost:3000/activity/{activity_id}/posts</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>GET</td>
+    <td>http://localhost:3000/activity/{activity_id}/posts/{id}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>PUT</td>
+    <td>http://localhost:3000/activity/{activity_id}/posts/{id}</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>DELETE</td>
+    <td>http://localhost:3000//activity/{activity_id}/posts/{id}</td>
+    <td></td>
+  </tr>
 
 </table>

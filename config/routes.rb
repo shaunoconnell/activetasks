@@ -7,6 +7,16 @@ Activetasks::Application.routes.draw do
   resources :activity, :only=>[] do
     resources :posts, :except=>[:new,:edit]
   end
+
+  get 'db_seed' => 'home#db_seed'
+  get 'db_clear' => 'home#db_clear'
+
+  #resource :home, :only=>[] do
+  #  collection do
+  #    get 'db_seed'
+  #    get 'db_clear'
+  #  end
+  #end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
